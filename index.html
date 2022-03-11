@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/9bc29573df.js" crossorigin="anonymous"></script>
+    <script src="script.js" type="text/javascript" defer></script>
+
+    <style>
+        form {
+            width: 300px;
+            margin: 20px auto;
+            border-radius: 30px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+        }
+
+        .poke-card {
+            position: relative;
+            height: fit-content;
+            font-family: 'Space Mono', monospace;
+            max-width: 600px;
+            border-radius: 30px;
+            color: #000;
+            text-align: center;
+            padding: 10px;
+            margin: 0 auto;
+            background-color: #e48474;
+            border: 1px solid black;
+            justify-content: space-between;
+        }
+
+        .poke-card::before {
+            content: '';
+            background: radial-gradient(circle, rgba(0,0,0,1) 50%, rgba(228,132,116,1) 33%);
+            background-size: 3px 3px;
+            border-radius: 30px;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            z-index: -1;
+        }
+
+        .img-container {
+            position: relative;
+            width: 180px;
+            margin: 10px auto;
+            background-color: #bfe7e6;
+            border-radius: 100px;
+            border: 1px solid black;
+        }
+
+        .poke-stats div {
+            display: flex;
+            justify-content: space-between;
+            align-content: space-between;
+            padding: 5px;
+            font-size: 14px;
+            border-radius: 30px;
+        }
+
+        .poke-types div {
+            padding: 5px;
+            margin: 5px;
+            border-radius: 4px;
+            border: 1px solid black;
+            background-color: #fdfee8;
+            border-radius: 30px;
+        }
+
+        .poke-abilities div {            
+            padding: 5px;
+            margin: 5px;            
+            font-size: 14px;
+            border-radius: 4px;
+            border: 1px solid black;
+            background-color: #fdfee8;
+            border-radius: 30px;
+        }
+
+        .poke-img {
+            width: 180px;
+            border-radius: 50%;
+        }
+
+        .buttons {
+            display: inline-block;
+            justify-content: center;
+            align-content: center;
+            padding: 10px;
+            margin: 5px;
+            border-radius: 30px;
+            text-align: center;            
+        }
+
+        .button {
+            font-size: 18px;
+            font-family: 'Space Mono', monospace;
+            border-radius: 30px;
+            background-color: #fdfee8;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <form action="" onsubmit="searchPokemon(event)">
+        <input type="text" name="pokemon" autocomplete="off">
+    </form>
+
+    <div data-poke-card class="poke-card container">
+
+        <div class="row ">
+
+            <div class="col-md-6">
+                <div data-poke-name>Pokename</div>
+                <div data-poke-img-container class="img-container">
+                    <img data-poke-img class="poke-img" src="./poke-shadow.png" />
+                </div>
+
+                <div data-poke-id style="font-weight: bold;">
+                    <p>N° id</p>
+                </div>
+                <div data-poke-types class="poke-types">
+                    <div class="mb-4">
+                        <span class="poke-types">poke type </span> <br>
+                    </div>
+                    <div class="mb-4">
+                        <span class="poke-types">poke type</span> <br>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-6">
+                <div data-poke-stats class="poke-stats"
+                    style="font-weight: bold; text-align:left; margin-left: 5px; font-size: 14px;">
+                    <p>hp:</p>
+                    <p>attack:</p>
+                    <p>defense:</p>
+                    <p>special-attack:</p>
+                    <p>special-defense:</p>
+                    <p>speed:</p>
+                </div>
+                <div data-poke-abilities class="poke-abilities " >
+                    <div>ability:</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        
+            <div class="buttons" >
+                <button class="button btn-lg" onclick="previous()">
+                    <<
+                </button>
+                <button class="button btn-lg" onclick="next()">
+                    >>
+                </button>
+            </div>
+        
+
+    </div>
+    
+</body>
+
+</html>
