@@ -42,7 +42,7 @@
 
         .poke-card::before {
             content: '';
-            background: radial-gradient(circle, rgba(0,0,0,1) 50%, rgba(228,132,116,1) 33%);
+            background: radial-gradient(circle, rgba(0, 0, 0, 1) 50%, rgba(228, 132, 116, 1) 33%);
             background-size: 3px 3px;
             border-radius: 30px;
             height: 100%;
@@ -80,9 +80,9 @@
             border-radius: 30px;
         }
 
-        .poke-abilities div {            
+        .poke-abilities div {
             padding: 5px;
-            margin: 5px;            
+            margin: 5px;
             font-size: 14px;
             border-radius: 4px;
             border: 1px solid black;
@@ -102,7 +102,7 @@
             padding: 10px;
             margin: 5px;
             border-radius: 30px;
-            text-align: center;            
+            text-align: center;
         }
 
         .button {
@@ -156,27 +156,36 @@
                     <p>special-defense:</p>
                     <p>speed:</p>
                 </div>
-                <div data-poke-abilities class="poke-abilities " >
+                <div data-poke-abilities class="poke-abilities ">
                     <div>ability:</div>
                 </div>
 
             </div>
 
         </div>
-
-        
-            <div class="buttons" >
-                <button class="button btn-lg" onclick="previous()">
-                    <<
-                </button>
-                <button class="button btn-lg" onclick="next()">
-                    >>
-                </button>
-            </div>
-        
-
+        <div class="buttons">
+            <button class="button btn-lg" id="previous">
+                << </button>
+                    <button class="button btn-lg" id="next">
+                        >>
+                    </button>
+        </div>
     </div>
-    
+
+    <script>
+        document.getElementById("previous").addEventListener("click", previous);
+        function previous() {
+            prevTo();
+        };
+
+        document.getElementById("next").addEventListener("click", next);
+        function next() {
+            nextTo();
+        };
+
+
+    </script>
+
 </body>
 
 </html>

@@ -6,6 +6,7 @@ const pokeId = document.querySelector('[data-poke-id]');
 const pokeTypes = document.querySelector('[data-poke-types]');
 const pokeStats = document.querySelector('[data-poke-stats]');
 const pokeAbilities = document.querySelector('[data-poke-abilities]');
+let datos = 0;
 
 
 const typeColors = {
@@ -46,6 +47,7 @@ const renderPokemonData = data => {
     pokeName.textContent = data.name;
     pokeImg.setAttribute('src', sprite);
     pokeId.textContent = `Nº ${data.id}`;
+    datos = data.id;
     setCardColor(types);
     renderPokemonTypes(types);
     renderPokemonStats(stats);
@@ -104,3 +106,27 @@ const renderNotFound = () => {
     pokeAbilities.innerHTML = '';
     pokeId.textContent = '';
 }
+
+function nextTo(){
+    let pokemon = datos;
+    pokemon = pokemon + 1;
+    if(pokemon === 899){
+        pokemon = 1;
+    } 
+fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
+.then(data => data.json())
+.then(response => renderPokemonData(response))
+.catch(err => renderNotFound())
+};
+
+function prevTo(){
+    let pokemon = datos;
+    pokemon = pokemon - 1;
+    if(pokemon === 0){
+        pokemon = 1;
+    } 
+fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
+.then(data => data.json())
+.then(response => renderPokemonData(response))
+.catch(err => renderNotFound())
+};
