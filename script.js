@@ -26,7 +26,7 @@ const typeColors = {
     dragon: '#4c34a4',
     steel: '#abaab7',
     fighting: '#7a3521',
-    default: '#bfe7e6',
+    default: '#5bc4da',
     fairy: '#e08ee0',
 };
 
@@ -56,7 +56,7 @@ const renderPokemonData = data => {
 
 
 const setCardColor = types => {
-    pokeImg.style.border = '1px solid black';
+    
     pokeImg.style.background =  typeColors.default;
     pokeImg.style.backgroundSize = ' 5px 5px';
 }

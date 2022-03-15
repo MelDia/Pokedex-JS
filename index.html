@@ -27,39 +27,81 @@
 
         .poke-card {
             position: relative;
-            height: fit-content;
-            font-family: 'Space Mono', monospace;
-            max-width: 600px;
-            border-radius: 30px;
+            height: 500px;
+            max-width: 300px;
+            padding: 10px;
+            margin: 0px;
+            border: 1px solid #ee3d4a;
+            border-radius: 10px;
             color: #000;
             text-align: center;
-            padding: 10px;
-            margin: 0 auto;
-            background-color: #e48474;
-            border: 1px solid black;
+            font-family: 'Space Mono', monospace;
+            background-color: #ee3d4a;
             justify-content: space-between;
         }
 
         .poke-card::before {
             content: '';
-            background: radial-gradient(circle, rgba(0, 0, 0, 1) 50%, rgba(228, 132, 116, 1) 33%);
+            background: radial-gradient(circle, #F1636E 50%, #e52030 33%);
             background-size: 3px 3px;
-            border-radius: 30px;
+            border-radius: 10px;
             height: 100%;
             width: 100%;
             position: absolute;
-            left: 10px;
-            top: 10px;
+            left: 5px;
+            top: 5px;
             z-index: -1;
+        }
+
+        .middle {
+            position: relative;
+            height: 400px;
+            max-width: 20px;
+            padding: 1px;
+            margin: 0px;
+            margin-top: 50px;
+            background-color: #e52030;
+            border: 5px solid #e52030;
+            justify-content: space-between;
+        }
+
+        .engranes1 {
+            position: absolute;
+            height: 20px;
+            max-width: 20px;
+            padding: 1px;
+            margin: 0px;
+            margin-top: 100px;
+            background-color: #ee3d4a;
+            border: 1px solid #e52030;
+        }
+
+        .engranes2 {
+            position: absolute;
+            height: 20px;
+            max-width: 20px;
+            padding: 1px;
+            margin: 0px;
+            margin-top: 380px;
+            background-color: #ee3d4a;
+            border: 1px solid #e52030;
         }
 
         .img-container {
             position: relative;
-            width: 180px;
+            width: 210px;
+            height: 210px;
             margin: 10px auto;
-            background-color: #bfe7e6;
-            border-radius: 100px;
-            border: 1px solid black;
+            background-color: #5bc4da;
+            border-radius: 10px;
+            border-bottom-left-radius: 70px;
+            border: 10px solid #dedede;
+        }
+
+        .poke-img {
+            width: 180px;
+            border-radius: 50%;
+            margin-top: 5px;
         }
 
         .poke-stats div {
@@ -74,33 +116,28 @@
         .poke-types div {
             padding: 5px;
             margin: 5px;
+            margin-left: 40px;
+            width: 200px;
             border-radius: 4px;
-            border: 1px solid black;
-            background-color: #fdfee8;
-            border-radius: 30px;
+            border: 1px solid #e4ebf3;
+            background-color: #e4ebf3;
+            border-radius: 10px;
         }
 
         .poke-abilities div {
             padding: 5px;
             margin: 5px;
             font-size: 14px;
-            border-radius: 4px;
-            border: 1px solid black;
-            background-color: #fdfee8;
-            border-radius: 30px;
-        }
-
-        .poke-img {
-            width: 180px;
-            border-radius: 50%;
+            border-radius: 10px;
+            border: 1px solid #c2e8ff;
+            background-color: #c2e8ff;
         }
 
         .buttons {
             display: inline-block;
-            justify-content: center;
-            align-content: center;
             padding: 10px;
             margin: 5px;
+            margin-left: 690px;
             border-radius: 30px;
             text-align: center;
         }
@@ -108,8 +145,10 @@
         .button {
             font-size: 18px;
             font-family: 'Space Mono', monospace;
-            border-radius: 30px;
-            background-color: #fdfee8;
+            border-radius: 10px;
+            border-bottom: 5px outset #b4aeb5;
+            border-right: 5px outset #b4aeb5;
+            background-color: #e4ebf3;
         }
     </style>
 
@@ -122,54 +161,60 @@
         <input type="text" name="pokemon" autocomplete="off">
     </form>
 
-    <div data-poke-card class="poke-card container">
 
-        <div class="row ">
+    <div class="row gx-1 justify-content-center">
 
-            <div class="col-md-6">
-                <div data-poke-name>Pokename</div>
-                <div data-poke-img-container class="img-container">
-                    <img data-poke-img class="poke-img" src="./poke-shadow.png" />
-                </div>
+        <div data-poke-card class="col-md-6 poke-card container">
 
-                <div data-poke-id style="font-weight: bold;">
-                    <p>N° id</p>
-                </div>
-                <div data-poke-types class="poke-types">
-                    <div class="mb-4">
-                        <span class="poke-types">poke type </span> <br>
-                    </div>
-                    <div class="mb-4">
-                        <span class="poke-types">poke type</span> <br>
-                    </div>
-                </div>
-
+            <div data-poke-name>Pokename</div>
+            <div data-poke-img-container class="img-container">
+                <img data-poke-img class="poke-img" src="./poke-shadow.png" />
             </div>
 
-            <div class="col-md-6">
-                <div data-poke-stats class="poke-stats"
-                    style="font-weight: bold; text-align:left; margin-left: 5px; font-size: 14px;">
-                    <p>hp:</p>
-                    <p>attack:</p>
-                    <p>defense:</p>
-                    <p>special-attack:</p>
-                    <p>special-defense:</p>
-                    <p>speed:</p>
-                </div>
-                <div data-poke-abilities class="poke-abilities ">
-                    <div>ability:</div>
-                </div>
+            <div data-poke-id style="font-weight: bold;">N° id</div>
 
+            <div data-poke-types class="poke-types">
+                <div class="">
+                    <span class="poke-types">type </span> <br>
+                </div>
+                <div class="">
+                    <span class="poke-types">type</span> <br>
+                </div>
+            </div>
+        </div>
+
+        <div class="middle col-lg-4 col-md-6">
+
+        </div>
+
+        <div class="engranes1 col-lg-4 col-md-6">
+
+        </div>
+
+        <div class="engranes2 col-lg-4 col-md-6">
+
+        </div>
+
+        <div data-poke-card class="col-md-6 poke-card container">
+
+            <div data-poke-stats class="poke-stats"
+                style="font-weight: bold; text-align:left; margin-left: 5px; font-size: 14px;">
+                                
+            </div>
+
+            <div data-poke-abilities class="poke-abilities " style="font-weight: bold; text-align:center; 
+            margin-left: 5px; font-size: 14px;">
+                
             </div>
 
         </div>
-        <div class="buttons">
-            <button class="button btn-lg" id="previous">
-                << </button>
-                    <button class="button btn-lg" id="next">
-                        >>
-                    </button>
-        </div>
+
+    </div>
+
+    <div class="buttons">
+        <button class="button btn-lg" id="previous"> << </button>
+        <button class="button btn-lg" id="next"> >> </button>
+    </div>
     </div>
 
     <script>
